@@ -107,8 +107,16 @@
       border-bottom-color: transparent;
     }
 
+    .mobile-break {
+      display: none;
+    }
+
     /* Responsive */
     @media (max-width: 600px) {
+      .mobile-break {
+        display: block;
+      }
+
       .container {
         padding: 0 16px;
       }
@@ -141,7 +149,7 @@
 <body>
   <div class="container">
     <div class="header">
-      <h1>Dress Code: Cóctel Formal</h1>
+      <h1>Dress Code:<br class="mobile-break"> Cóctel Formal</h1>
       <p>¡Los invitamos a usar colores vibrantes! Obviamente está prohibido usar blanco/crema/beige.</p>
     </div>
 
