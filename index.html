@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Martina & Vicente - 01.05.26</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@100;200;300;400&display=swap" rel="stylesheet">
+  <style>
+    @font-face {
+      font-family: 'CoFo Sans';
+      src: url('https://fonts.cdnfonts.com/css/cofo-sans') format('woff2');
+      font-weight: 100 900;
+      font-display: swap;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f7f4f0;
+      color: #3a3a3a;
+      font-family: 'Outfit', sans-serif;
+      font-weight: 100;
+      display: flex;
+      justify-content: center;
+      padding: 40px 0;
+    }
+
+    .invitation {
+      max-width: 700px;
+      width: 100%;
+      text-align: center;
+      padding: 60px 40px;
+    }
+
+    /* Scroll animations */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+
+    /* Parents */
+    .parents {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 50px;
+      gap: 20px;
+    }
+
+    .parents-group {
+      font-size: 16px;
+      font-weight: 200;
+      line-height: 1.7;
+      letter-spacing: 0.3px;
+      color: #555;
+      white-space: nowrap;
+    }
+
+    .parents-group.left {
+      text-align: left;
+    }
+
+    .parents-group.right {
+      text-align: right;
+    }
+
+    /* Date */
+    .date {
+      font-family: 'CoFo Sans', 'Outfit', sans-serif;
+      font-weight: 400;
+      font-size: 44px;
+      color: #3a3a3a;
+      margin-bottom: 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .date .separator {
+      font-size: 18px;
+      color: #999;
+      line-height: 1;
+    }
+
+    .date .num {
+      line-height: 1;
+    }
+
+    /* House illustration */
+    .illustration {
+      width: 100%;
+      margin: 0 auto 20px;
+    }
+
+    .illustration img {
+      width: 100%;
+      height: auto;
+      display: block;
+      background-color: transparent;
+    }
+
+    /* Names */
+    .names {
+      font-family: 'Outfit', sans-serif;
+      font-weight: 400;
+      font-size: 48px;
+      letter-spacing: 1px;
+      color: #2c2c2c;
+      margin-bottom: 36px;
+    }
+
+    /* Details */
+    .details {
+      font-size: 18px;
+      font-weight: 200;
+      line-height: 1.8;
+      color: #555;
+      letter-spacing: 0.2px;
+      text-align: left;
+    }
+
+    .details p {
+      margin-bottom: 16px;
+    }
+
+    .details p:last-child {
+      margin-bottom: 0;
+    }
+
+    .location-link {
+      color: #b36a88;
+      text-decoration: none;
+      border-bottom: 1px solid #b36a88;
+      padding-bottom: 1px;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .location-link:hover {
+      color: #fff;
+      background-color: #b36a88;
+      border-bottom-color: transparent;
+    }
+
+    /* RSVP */
+    .rsvp {
+      text-align: center;
+    }
+
+    .rsvp-title {
+      font-size: 20px;
+      font-weight: 400;
+      letter-spacing: 3px;
+      color: #3a3a3a;
+      margin-bottom: 8px;
+    }
+
+    .rsvp-subtitle {
+      font-size: 14px;
+      font-weight: 200;
+      color: #555;
+      margin-bottom: 14px;
+    }
+
+    .rsvp a {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 200;
+      color: #fff;
+      background-color: #b36a88;
+      text-decoration: none;
+      padding: 10px 20px;
+      letter-spacing: 1px;
+      line-height: 1;
+      border-radius: 4px;
+    }
+
+    .rsvp a:hover {
+      background-color: #9a5a75;
+    }
+
+    .regalos-links {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+    }
+
+    /* Divider */
+    .divider {
+      width: 50px;
+      height: 1px;
+      background: #c9c0b6;
+      margin: 32px auto;
+    }
+
+    .desktop-break {
+      display: block;
+    }
+
+    .mobile-break {
+      display: none;
+    }
+
+    /* Responsive */
+    @media (max-width: 600px) {
+      .desktop-break {
+        display: none;
+      }
+      .mobile-break {
+        display: block;
+      }
+      .invitation {
+        padding: 40px 16px;
+      }
+
+      .parents {
+        margin-bottom: 36px;
+      }
+
+      .parents-group {
+        font-size: 12px;
+      }
+
+      .date {
+        font-size: 42px;
+      }
+
+      .names {
+        font-size: 36px;
+      }
+
+      .details {
+        font-size: 18px;
+      }
+
+      .rsvp-subtitle {
+        font-size: 14px;
+      }
+    }
+
+    /* Desktop */
+    @media (min-width: 601px) {
+      .details {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="invitation">
+
+    <!-- Date -->
+    <div class="date reveal">
+      <span class="num">01</span>
+      <span class="separator">-</span>
+      <span class="num">05</span>
+      <span class="separator">-</span>
+      <span class="num">26</span>
+    </div>
+
+    <!-- House Illustration -->
+    <div class="illustration reveal">
+      <img src="casa.png" alt="Ilustración de la casa">
+    </div>
+
+    <!-- Names -->
+    <h1 class="names reveal">Martina & Vicente</h1>
+
+    <!-- Parents -->
+    <div class="parents reveal">
+      <div class="parents-group left">
+        Diego Pini<br>
+        Jimena Flamarique
+      </div>
+      <div class="parents-group right">
+        Cristián Flanagan<br>
+        Sandra Montedonico
+      </div>
+    </div>
+
+    <div class="divider reveal"></div>
+
+    <!-- Details -->
+    <div class="details reveal">
+      <p>
+        Acompáñanos a celebrar nuestro matrimonio civil en <a href="https://maps.app.goo.gl/5f8bG7m2aZMQFsU66" target="_blank" class="location-link">Asturias 1719,<br class="desktop-break">
+        Viña del Mar</a>, el día 1 de mayo de 2026, a las 13:30 horas en punto.
+      </p>
+      <p>
+        Seguido de un cóctel formal en la misma dirección.
+      </p>
+    </div>
+
+    <div class="divider reveal"></div>
+
+    <!-- RSVP -->
+    <div class="rsvp reveal">
+      <p class="rsvp-title">RSVP</p>
+      <p class="rsvp-subtitle">Agradecemos confirmar tu asistencia <br class="mobile-break">antes del día 10 de abril, 2026</p>
+      <a href="https://forms.gle/n8ULmPQgFKecb4geA" target="_blank">Haz click aquí</a>
+    </div>
+
+    <div class="divider reveal"></div>
+
+    <!-- Vestimenta -->
+    <div class="rsvp reveal">
+      <p class="rsvp-title">VESTIMENTA</p>
+      <p class="rsvp-subtitle">Vestimenta cóctel formal.</p>
+      <a href="https://pin.it/1Sz2FlEzr" target="_blank">Inspiración</a>
+    </div>
+
+    <div class="divider reveal"></div>
+
+    <!-- Regalos -->
+    <div class="rsvp reveal">
+      <p class="rsvp-title">REGALOS</p>
+      <p class="rsvp-subtitle">Si deseas hacernos un regalo, un aporte para nuestra nueva aventura en Boston será bienvenido.</p>
+      <div class="regalos-links">
+        <a href="https://fintoc.me/martinayvicente" target="_blank">Fintoc</a>
+        <a href="https://paypal.me/martipinif" target="_blank">PayPal</a>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const elements = document.querySelectorAll('.reveal');
+    let delay = 0;
+    const stagger = 400;
+
+    elements.forEach((el, i) => {
+      setTimeout(() => {
+        el.classList.add('visible');
+      }, delay);
+      delay += stagger;
+    });
+  </script>
+</body>
+</html>
